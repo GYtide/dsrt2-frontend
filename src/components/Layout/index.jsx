@@ -1,4 +1,6 @@
 import { Layout, Menu, Popconfirm } from 'antd'
+import { DatePicker } from 'antd'
+import dayjs from 'dayjs'
 import {
   HomeOutlined,
   DiffOutlined,
@@ -28,10 +30,16 @@ const GeekLayout = () => {
         <Sider width={200} className="site-layout-background">
           <Menu
             mode="inline"
-            theme="dark"
+            theme="light"
             defaultSelectedKeys={['1']}
             style={{ height: '100%', borderRight: 0 }}>
-            <Menu.Item icon={<HomeOutlined />} key="1">
+            <Menu.Item>
+              <h3>日期选择</h3>
+            </Menu.Item>
+            <Menu.Item>
+              <DatePicker size="large" value={new dayjs()} />
+            </Menu.Item>
+            {/* <Menu.Item icon={<HomeOutlined />} key="1">
               数据概览
             </Menu.Item>
             <Menu.Item icon={<DiffOutlined />} key="2">
@@ -39,7 +47,7 @@ const GeekLayout = () => {
             </Menu.Item>
             <Menu.Item icon={<EditOutlined />} key="3">
               发布文章
-            </Menu.Item>
+            </Menu.Item> */}
           </Menu>
         </Sider>
         <Layout className="layout-content" style={{ padding: 20 }}>
