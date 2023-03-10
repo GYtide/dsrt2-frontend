@@ -1,4 +1,4 @@
-import { Layout, Menu, Popconfirm } from 'antd'
+import { Layout, Menu, Popconfirm, Card, Button, Form } from 'antd'
 import { DatePicker } from 'antd'
 import dayjs from 'dayjs'
 import {
@@ -27,28 +27,35 @@ const GeekLayout = () => {
         </div>
       </Header>
       <Layout>
-        <Sider width={200} className="site-layout-background">
-          <Menu
-            mode="inline"
-            theme="light"
-            defaultSelectedKeys={['1']}
-            style={{ height: '100%', borderRight: 0 }}>
-            <Menu.Item>
-              <h3>日期选择</h3>
-            </Menu.Item>
-            <Menu.Item>
-              <DatePicker size="large" value={new dayjs()} />
-            </Menu.Item>
-            {/* <Menu.Item icon={<HomeOutlined />} key="1">
-              数据概览
-            </Menu.Item>
-            <Menu.Item icon={<DiffOutlined />} key="2">
-              内容管理
-            </Menu.Item>
-            <Menu.Item icon={<EditOutlined />} key="3">
-              发布文章
-            </Menu.Item> */}
-          </Menu>
+        <Sider theme="light" width={'auto'} className="site-layout-background">
+          <Form style={{ height: '100%', borderRight: 0 }}>
+            <Card
+              title="日期选择"
+              bordered={false}
+              style={{ width: 200, height: 'auto' }}>
+              <DatePicker
+                value={new dayjs()}
+                style={{ padding: 10, margin: 10 }}></DatePicker>
+            </Card>
+            <Card
+              title="时间选择"
+              bordered={false}
+              style={{ width: 200, height: 'auto' }}>
+              <DatePicker
+                value={new dayjs()}
+                style={{ padding: 10, margin: 10 }}></DatePicker>
+              <DatePicker
+                value={new dayjs()}
+                style={{ padding: 10, margin: 10 }}></DatePicker>
+            </Card>
+            <Card
+              title="数据检索"
+              bordered={false}
+              style={{ width: 200, height: 'auto' }}>
+              <Button style={{ padding: 10, margin: 10 }}>数据预览</Button>
+              <Button style={{ padding: 10, margin: 10 }}>文件预览</Button>
+            </Card>
+          </Form>
         </Sider>
         <Layout className="layout-content" style={{ padding: 20 }}>
           内容
