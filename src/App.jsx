@@ -13,7 +13,9 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<GeekLayout />}></Route>
+          <Route path="/" element={<GeekLayout />}>
+            <Route index element={'asdasd'}></Route>
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>

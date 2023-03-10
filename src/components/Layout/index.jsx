@@ -8,6 +8,7 @@ import {
   LogoutOutlined,
 } from '@ant-design/icons'
 import './index.scss'
+import { Outlet } from 'react-router-dom'
 
 // 解构 antd Layout
 const { Header, Sider } = Layout
@@ -58,7 +59,7 @@ const GeekLayout = () => {
           </Form>
         </Sider>
         <Layout className="layout-content" style={{ padding: 20 }}>
-          内容
+          <Outlet />
         </Layout>
       </Layout>
     </Layout>
