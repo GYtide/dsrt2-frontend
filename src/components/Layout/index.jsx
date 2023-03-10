@@ -1,11 +1,12 @@
 import { Layout, Menu, Popconfirm } from 'antd'
-
 import {
   HomeOutlined,
   DiffOutlined,
   EditOutlined,
   LogoutOutlined,
 } from '@ant-design/icons'
+import './index.scss'
+
 // 解构 antd Layout
 const { Header, Sider } = Layout
 
@@ -37,7 +38,7 @@ const GeekLayout = () => {
               内容管理
             </Menu.Item>
             <Menu.Item icon={<EditOutlined />} key="3">
-              发布文章 
+              发布文章
             </Menu.Item>
           </Menu>
         </Sider>
@@ -48,3 +49,5 @@ const GeekLayout = () => {
     </Layout>
   )
 }
+
+export default GeekLayout
