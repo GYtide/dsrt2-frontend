@@ -85,29 +85,9 @@ const GeekLayout = () => {
               style={{ height: 'auto', borderRight: 0, padding: 10 }}>
               <Menu.Item
                 style={{ padding: 10, marginBottom: 20 }}
-                icon={<HomeOutlined />}
-                key="1">
-                <Link
-                  to={`/quicklook/?date=${date.format(
-                    'YYYY-MM-DD'
-                  )}&start=${starttime.format('HH:mm')}&end=${endtime.format(
-                    'HH:mm'
-                  )}`}>
-                  数据概览
-                </Link>
-              </Menu.Item>
-              <Menu.Item
-                style={{ padding: 10, marginBottom: 20 }}
                 icon={<DiffOutlined />}
                 key="2">
-                <Link
-                  to={`/fileview/?date=${date.format(
-                    'YYYY-MM-DD'
-                  )}&start=${starttime.format('HH:mm')}&end=${endtime.format(
-                    'HH:mm'
-                  )}`}>
-                  文件预览
-                </Link>
+                开始检索
               </Menu.Item>
             </Menu>
           </Form>
