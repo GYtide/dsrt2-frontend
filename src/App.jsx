@@ -18,7 +18,7 @@ function App() {
           <Route path="/" element={<GeekLayout />}>
             <Route index element={<Home />}></Route>
             <Route path="/quicklook" element={<Quicklook></Quicklook>}></Route>
-            <Route path="/fileview" element={'asdasd'}></Route>
+            <Route path="/fileview" element={'文件查看'}></Route>
           </Route>
         </Routes>
       </div>
