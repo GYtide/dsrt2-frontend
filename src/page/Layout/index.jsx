@@ -21,7 +21,7 @@ import {
   LogoutOutlined,
 } from '@ant-design/icons'
 import './index.scss'
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet, Link, useSearchParams } from 'react-router-dom'
 import { useState } from 'react'
 
 // 解构 antd Layout

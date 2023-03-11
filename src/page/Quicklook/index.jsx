@@ -26,7 +26,11 @@ const Quicklook = () => {
     }
 
     loadQuicklook()
-  }, [image, searchParams])
+  }, [
+    searchParams.get('date'),
+    searchParams.get('start'),
+    searchParams.get('end'),
+  ])
 
   return (
     <>

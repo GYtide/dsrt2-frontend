@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import { observer } from 'mobx-react-lite'
 import { useStore } from './store/index'
+import { history } from './utils/history'
 import {
   unstable_HistoryRouter as HistoryRouter,
   Routes,
@@ -18,7 +19,7 @@ import Fileview from './page/Fileview'
 function App() {
   const { counterStore } = useStore()
   return (
-    <BrowserRouter>
+    <HistoryRouter history={history}>
       <div className="App">
         <Routes>
           <Route path="/" element={<GeekLayout />}>
@@ -28,7 +29,7 @@ function App() {
           </Route>
         </Routes>
       </div>
-    </BrowserRouter>
+    </HistoryRouter>
   )
 }
 
