@@ -1,10 +1,15 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { history } from './utils'
 import { observer } from 'mobx-react-lite'
 import { useStore } from './store/index'
-
-import { Router, Route, Routes, BrowserRouter } from 'react-router-dom'
+import {
+  unstable_HistoryRouter as HistoryRouter,
+  Routes,
+  Route,
+} from 'react-router-dom'
+// import { Router, Route, Routes, BrowserRouter } from 'react-router-dom'
 
 import GeekLayout from './page/Layout'
 import Home from './page/Home'
@@ -12,7 +17,7 @@ import Quicklook from './page/Quicklook'
 function App() {
   const { counterStore } = useStore()
   return (
-    <BrowserRouter>
+    <HistoryRouter history={history}>
       <div className="App">
         <Routes>
           <Route path="/" element={<GeekLayout />}>
@@ -22,7 +27,7 @@ function App() {
           </Route>
         </Routes>
       </div>
-    </BrowserRouter>
+    </HistoryRouter>
   )
 }
 
