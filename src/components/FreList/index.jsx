@@ -1,23 +1,30 @@
 import { Radio, Space, Table, Tag } from 'antd'
+const data = [
+  {
+    key: '1',
+    name: '150',
+    tags: ['nice', 'developer'],
+  },
+  {
+    key: '2',
+    name: '300',
+    tags: ['loser'],
+  },
+  {
+    key: '3',
+    name: '450',
+    tags: ['cool', 'teacher'],
+  },
+]
 const columns = [
   {
-    title: 'Name',
+    title: '频率',
     dataIndex: 'name',
     key: 'name',
     render: (text) => <a>{text}</a>,
   },
   {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
-  },
-  {
-    title: 'Tags',
+    title: '可用时间',
     key: 'tags',
     dataIndex: 'tags',
     render: (tags) => (
@@ -36,20 +43,10 @@ const columns = [
       </span>
     ),
   },
-  {
-    title: 'Action',
-    key: 'action',
-    render: (_, record) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
-  },
 ]
 
 const FreList = () => {
-  return
+  return <Table columns={columns} dataSource={data} />
 }
 
 export default FreList

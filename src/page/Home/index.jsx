@@ -1,7 +1,7 @@
 import FreList from '@/components/FreList'
 
 const Home = () => {
-  return <div>sasas</div>
+  return <FreList />
 }
 
 export default Home
