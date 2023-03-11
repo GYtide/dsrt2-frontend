@@ -3,17 +3,17 @@ const data = [
   {
     key: '1',
     name: '150',
-    tags: ['nice', 'developer'],
+    tags: ['10:00', '12:30'],
   },
   {
     key: '2',
     name: '300',
-    tags: ['loser'],
+    tags: ['11:00', '12:30'],
   },
   {
     key: '3',
     name: '450',
-    tags: ['cool', 'teacher'],
+    tags: ['09:00', '12:30'],
   },
 ]
 const columns = [
