@@ -1,4 +1,17 @@
-import { Layout, Menu, Popconfirm, TimePicker, Card, Button, Form } from 'antd'
+import {
+  Layout,
+  Menu,
+  Popconfirm,
+  TimePicker,
+  Col,
+  InputNumber,
+  Row,
+  Slider,
+  Space,
+  Card,
+  Button,
+  Form,
+} from 'antd'
 import { DatePicker } from 'antd'
 import dayjs from 'dayjs'
 import {
@@ -9,11 +22,13 @@ import {
 } from '@ant-design/icons'
 import './index.scss'
 import { Outlet } from 'react-router-dom'
+import { useState } from 'react'
 
 // 解构 antd Layout
 const { Header, Sider } = Layout
 
 const GeekLayout = () => {
+  const [Value, setinput] = useState(0)
   return (
     <Layout>
       <Header className="header">
