@@ -7,6 +7,7 @@ import { useStore } from './store/index'
 import { Router, Route, Routes, BrowserRouter } from 'react-router-dom'
 
 import GeekLayout from './page/Layout'
+import Home from './page/Home'
 function App() {
   const { counterStore } = useStore()
   return (
@@ -14,7 +15,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<GeekLayout />}>
-            <Route index element={'asdasd'}></Route>
+            <Route index element={<Home />}></Route>
           </Route>
         </Routes>
       </div>
