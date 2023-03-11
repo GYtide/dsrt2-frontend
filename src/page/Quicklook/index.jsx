@@ -5,10 +5,13 @@ import { useSearchParams } from 'react-router-dom'
 import { LoadingOutlined } from '@ant-design/icons'
 import { Spin } from 'antd'
 import { http } from '@/utils'
+import { useStore } from '../../store'
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />
 
 const Quicklook = () => {
+  const { timeStore } = useStore()
+  console.log(timeStore)
   const [searchParams, setSearchParams] = useSearchParams() //获取路由的搜索参数
   const [image, setimage] = useState(null)
   const [isLoading, setisLoading] = useState(true)
@@ -17,9 +20,7 @@ const Quicklook = () => {
     const loadQuicklook = async () => {
       setisLoading(true)
       const res = await http.get(
-        `/overview/quicklook/?date=${searchParams.get(
-          'date'
-        )}&start=${searchParams.get('start')}&end=${searchParams.get('end')}`
+        `/overview/quicklook/?date=${timeStore.date}&start=${timeStore.start}&end=${timeStore.end}`
       )
       setimage(res[0].res)
       setisLoading(false)
