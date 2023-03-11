@@ -8,7 +8,7 @@ import { Router, Route, Routes, BrowserRouter } from 'react-router-dom'
 
 import GeekLayout from './page/Layout'
 import Home from './page/Home'
-import Quicklook from './page/Fileview'
+import Quicklook from './page/Quicklook'
 function App() {
   const { counterStore } = useStore()
   return (
