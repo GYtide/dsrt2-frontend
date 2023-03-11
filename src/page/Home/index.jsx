@@ -3,6 +3,8 @@ import OverView from '@/components/OverView'
 import './index.scss'
 import { Card, Tabs } from 'antd'
 import Quicklook from '../Quicklook'
+import Imageview from '../Imageview'
+import Spectrumview from '../Spectrumview'
 const items = [
   {
     key: '1',
@@ -12,12 +14,12 @@ const items = [
   {
     key: '2',
     label: `射电成像`,
-    children: `Content of Tab Pane 2`,
+    children: <Imageview></Imageview>,
   },
   {
     key: '3',
     label: `射电频谱`,
-    children: `Content of Tab Pane 2`,
+    children: <Spectrumview></Spectrumview>,
   },
   {
     key: '4',

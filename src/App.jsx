@@ -15,7 +15,7 @@ import {
 import GeekLayout from './page/Layout'
 import Home from './page/Home'
 import Quicklook from './page/Quicklook'
-import Fileview from './page/Fileview'
+import Fileview from './page/Imageview'
 function App() {
   const { counterStore } = useStore()
   return (
