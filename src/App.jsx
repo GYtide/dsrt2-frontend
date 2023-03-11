@@ -6,7 +6,7 @@ import { useStore } from './store/index'
 
 import { Router, Route, Routes, BrowserRouter } from 'react-router-dom'
 
-import GeekLayout from './components/Layout'
+import GeekLayout from './page/Layout'
 function App() {
   const { counterStore } = useStore()
   return (
