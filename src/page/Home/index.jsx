@@ -6,12 +6,22 @@ import Quicklook from '../Quicklook'
 const items = [
   {
     key: '1',
-    label: `射电成像`,
+    label: `数据预览`,
     children: <Quicklook></Quicklook>,
   },
   {
     key: '2',
+    label: `射电成像`,
+    children: `Content of Tab Pane 2`,
+  },
+  {
+    key: '3',
     label: `射电频谱`,
+    children: `Content of Tab Pane 2`,
+  },
+  {
+    key: '4',
+    label: `爆发事件`,
     children: `Content of Tab Pane 2`,
   },
 ]
