@@ -28,7 +28,7 @@ const GeekLayout = () => {
         </div>
       </Header>
       <Layout>
-        <Sider theme="light" width={'auto'} className="site-layout-background">
+        <Sider width={200} theme="light" className="site-layout-background">
           <Form style={{ height: '100%', borderRight: 0 }}>
             <Card
               title="日期选择"
@@ -49,13 +49,31 @@ const GeekLayout = () => {
                 value={new dayjs()}
                 style={{ padding: 10, margin: 10 }}></DatePicker>
             </Card>
-            <Card
+            {/* <Card
               title="数据检索"
               bordered={false}
               style={{ width: 200, height: 'auto' }}>
               <Button style={{ padding: 10, margin: 10 }}>数据预览</Button>
               <Button style={{ padding: 10, margin: 10 }}>文件预览</Button>
-            </Card>
+            </Card> */}
+            <Menu
+              mode="inline"
+              theme="light"
+              // defaultSelectedKeys={['1']}
+              style={{ height: 'auto', borderRight: 0, padding: 10 }}>
+              <Menu.Item
+                style={{ padding: 10, 'margin-bottom': 20 }}
+                icon={<HomeOutlined />}
+                key="1">
+                数据概览
+              </Menu.Item>
+              <Menu.Item
+                style={{ padding: 10, 'margin-bottom': 20 }}
+                icon={<DiffOutlined />}
+                key="2">
+                文件预览
+              </Menu.Item>
+            </Menu>
           </Form>
         </Sider>
         <Layout className="layout-content" style={{ padding: 20 }}>
