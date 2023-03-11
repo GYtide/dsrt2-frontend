@@ -23,14 +23,15 @@ import {
 import './index.scss'
 import { Outlet, Link, useSearchParams } from 'react-router-dom'
 import { useState } from 'react'
+import { observer } from 'mobx-react-lite'
+
+import { useStore } from '@/store'
 
 // 解构 antd Layout
 const { Header, Sider } = Layout
 
 const GeekLayout = () => {
-  const [date, setDate] = useState(dayjs())
-  const [starttime, setStarttime] = useState(dayjs())
-  const [endtime, setEndtime] = useState(dayjs())
+  const { timeStore } = useStore()
 
   return (
     <Layout>
@@ -53,9 +54,9 @@ const GeekLayout = () => {
               bordered={false}
               style={{ width: 200, height: 'auto' }}>
               <DatePicker
-                value={date}
+                value={timeStore.date}
                 onChange={(date, dateString) => {
-                  setDate(date)
+                  timeStore.setDate(date)
                 }}
                 style={{ padding: 10, margin: 10 }}></DatePicker>
             </Card>
@@ -65,16 +66,16 @@ const GeekLayout = () => {
               style={{ width: 200, height: 'auto' }}>
               <TimePicker
                 style={{ padding: 10, margin: 10 }}
-                value={starttime}
+                value={timeStore.start}
                 onChange={(date, dateString) => {
-                  setStarttime(date)
+                  timeStore.setStart(date)
                 }}
               />
               <TimePicker
                 style={{ padding: 10, margin: 10 }}
-                value={endtime}
+                value={timeStore.end}
                 onChange={(date, dateString) => {
-                  setEndtime(date)
+                  timeStore.setEnd(date)
                 }}
               />
             </Card>
@@ -100,4 +101,4 @@ const GeekLayout = () => {
   )
 }
 
-export default GeekLayout
+export default observer(GeekLayout)

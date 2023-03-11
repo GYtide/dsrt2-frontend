@@ -4,25 +4,35 @@ import { makeAutoObservable } from 'mobx'
 import dayjs from 'dayjs'
 class TimeStore {
 
-  date = dayjs().format("YYYY-MM-DD")
-  start = dayjs().format("HH:mm")
-  end = dayjs().format("HH:mm")
+  date = dayjs()
+  start = dayjs()
+  end = dayjs()
 
   constructor() {
     makeAutoObservable(this)
   }
 
+  setOriDate = (newdate) => {
+    this.Date = newdate
+  }
+
   setDate = (newdate) => {
-    this.date = newdate.format("YYYY-MM-DD")
+    this.date = newdate
   }
 
   setStart = (newdate) => {
-    this.start = newdate.format("HH:mm")
+    this.start = newdate
   }
 
   setEnd = (newdate) => {
-    this.end = newdate.format("HH:mm")
+    this.end = newdate
   }
+
+  getEnd = () => this.end.format("HH:mm")
+
+  getStart = () => this.start.format("HH:mm")
+
+  getDate = () => this.start.format("YYYY-MM-DD")
 
 }
 

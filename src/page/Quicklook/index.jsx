@@ -11,7 +11,6 @@ const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />
 
 const Quicklook = () => {
   const { timeStore } = useStore()
-  console.log(timeStore)
   const [searchParams, setSearchParams] = useSearchParams() //获取路由的搜索参数
   const [image, setimage] = useState(null)
   const [isLoading, setisLoading] = useState(true)
@@ -20,7 +19,7 @@ const Quicklook = () => {
     const loadQuicklook = async () => {
       setisLoading(true)
       const res = await http.get(
-        `/overview/quicklook/?date=${timeStore.date}&start=${timeStore.start}&end=${timeStore.end}`
+        `/overview/quicklook/?date=${timeStore.getDate()}&start=${timeStore.getStart()}&end=${timeStore.getEnd()}`
       )
       setimage(res[0].res)
       setisLoading(false)
