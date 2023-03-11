@@ -1,10 +1,14 @@
 import { Card, Empty } from 'antd'
 import './index.scss'
 
-const OverView = () => {
+const OverView = ({ data }) => {
   return (
     <Card title={'数据预览图'} className="qucikcard">
-      <Empty imageStyle={{ height: 200 }} />
+      {data ? (
+        <img src={`data:image/png;base64,${data}`}></img>
+      ) : (
+        <Empty imageStyle={{ height: 200 }} />
+      )}
     </Card>
   )
 }

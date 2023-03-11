@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <>
       <FreList />
-      <OverView />
+      <OverView data={[]} />
     </>
   )
 }
