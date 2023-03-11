@@ -28,7 +28,9 @@ import { useState } from 'react'
 const { Header, Sider } = Layout
 
 const GeekLayout = () => {
-  const [Value, setinput] = useState(0)
+  const [date, setDate] = useState(dayjs())
+  const [starttime, setStarttime] = useState(dayjs())
+  const [endtime, setEndtime] = useState(dayjs())
   return (
     <Layout>
       <Header className="header">
@@ -50,7 +52,10 @@ const GeekLayout = () => {
               bordered={false}
               style={{ width: 200, height: 'auto' }}>
               <DatePicker
-                value={new dayjs()}
+                value={date}
+                onChange={(date, dateString) => {
+                  setDate(date)
+                }}
                 style={{ padding: 10, margin: 10 }}></DatePicker>
             </Card>
             <Card
@@ -59,11 +64,17 @@ const GeekLayout = () => {
               style={{ width: 200, height: 'auto' }}>
               <TimePicker
                 style={{ padding: 10, margin: 10 }}
-                defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
+                value={starttime}
+                onChange={(date, dateString) => {
+                  setStarttime(date)
+                }}
               />
               <TimePicker
                 style={{ padding: 10, margin: 10 }}
-                defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
+                value={endtime}
+                onChange={(date, dateString) => {
+                  setEndtime(date)
+                }}
               />
             </Card>
             <Menu
