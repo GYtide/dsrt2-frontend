@@ -62,13 +62,13 @@ const GeekLayout = () => {
               // defaultSelectedKeys={['1']}
               style={{ height: 'auto', borderRight: 0, padding: 10 }}>
               <Menu.Item
-                style={{ padding: 10, 'margin-bottom': 20 }}
+                style={{ padding: 10, marginBottom: 20 }}
                 icon={<HomeOutlined />}
                 key="1">
                 数据概览
               </Menu.Item>
               <Menu.Item
-                style={{ padding: 10, 'margin-bottom': 20 }}
+                style={{ padding: 10, marginBottom: 20 }}
                 icon={<DiffOutlined />}
                 key="2">
                 文件预览
