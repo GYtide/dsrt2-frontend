@@ -21,7 +21,7 @@ import {
   LogoutOutlined,
 } from '@ant-design/icons'
 import './index.scss'
-import { Outlet } from 'react-router-dom'
+import { Outlet, Link } from 'react-router-dom'
 import { useState } from 'react'
 
 // 解构 antd Layout
@@ -31,6 +31,7 @@ const GeekLayout = () => {
   const [date, setDate] = useState(dayjs())
   const [starttime, setStarttime] = useState(dayjs())
   const [endtime, setEndtime] = useState(dayjs())
+
   return (
     <Layout>
       <Header className="header">
@@ -86,13 +87,29 @@ const GeekLayout = () => {
                 style={{ padding: 10, marginBottom: 20 }}
                 icon={<HomeOutlined />}
                 key="1">
-                数据概览
+                <Link
+                  to={`/quicklook/?date=${date.format(
+                    'YYYY-MM-DD'
+                  )}&start=${starttime.format('HH:mm')}&end=${endtime.format(
+                    'HH:mm'
+                  )}`}>
+                  {' '}
+                  数据概览
+                </Link>
               </Menu.Item>
               <Menu.Item
                 style={{ padding: 10, marginBottom: 20 }}
                 icon={<DiffOutlined />}
                 key="2">
-                文件预览
+                <Link
+                  to={`/fileview/?date=${date.format(
+                    'YYYY-MM-DD'
+                  )}&start=${starttime.format('HH:mm')}&end=${endtime.format(
+                    'HH:mm'
+                  )}`}>
+                  {' '}
+                  文件预览
+                </Link>
               </Menu.Item>
             </Menu>
           </Form>

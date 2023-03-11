@@ -16,6 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<GeekLayout />}>
             <Route index element={<Home />}></Route>
+            <Route path="/quicklook" element={'asdasd'}></Route>
+            <Route path="/fileview" element={'asdasd'}></Route>
           </Route>
         </Routes>
       </div>
