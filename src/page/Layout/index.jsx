@@ -93,7 +93,6 @@ const GeekLayout = () => {
                   )}&start=${starttime.format('HH:mm')}&end=${endtime.format(
                     'HH:mm'
                   )}`}>
-                  {' '}
                   数据概览
                 </Link>
               </Menu.Item>
@@ -107,7 +106,6 @@ const GeekLayout = () => {
                   )}&start=${starttime.format('HH:mm')}&end=${endtime.format(
                     'HH:mm'
                   )}`}>
-                  {' '}
                   文件预览
                 </Link>
               </Menu.Item>
