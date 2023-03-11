@@ -1,4 +1,4 @@
-import { Layout, Menu, Popconfirm, Card, Button, Form } from 'antd'
+import { Layout, Menu, Popconfirm, TimePicker, Card, Button, Form } from 'antd'
 import { DatePicker } from 'antd'
 import dayjs from 'dayjs'
 import {
@@ -42,20 +42,15 @@ const GeekLayout = () => {
               title="时间选择"
               bordered={false}
               style={{ width: 200, height: 'auto' }}>
-              <DatePicker
-                value={new dayjs()}
-                style={{ padding: 10, margin: 10 }}></DatePicker>
-              <DatePicker
-                value={new dayjs()}
-                style={{ padding: 10, margin: 10 }}></DatePicker>
+              <TimePicker
+                style={{ padding: 10, margin: 10 }}
+                defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
+              />
+              <TimePicker
+                style={{ padding: 10, margin: 10 }}
+                defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
+              />
             </Card>
-            {/* <Card
-              title="数据检索"
-              bordered={false}
-              style={{ width: 200, height: 'auto' }}>
-              <Button style={{ padding: 10, margin: 10 }}>数据预览</Button>
-              <Button style={{ padding: 10, margin: 10 }}>文件预览</Button>
-            </Card> */}
             <Menu
               mode="inline"
               theme="light"
