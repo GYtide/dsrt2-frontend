@@ -16,6 +16,7 @@ import GeekLayout from './page/Layout'
 import Home from './page/Home'
 import Quicklook from './page/Quicklook'
 import Fileview from './page/Imageview'
+import Rasterview from './components/Rasterview'
 function App() {
   const { counterStore } = useStore()
   return (
@@ -24,8 +25,9 @@ function App() {
         <Routes>
           <Route path="/" element={<GeekLayout />}>
             <Route index element={<Home />}></Route>
-            <Route path="/quicklook" element={<Quicklook></Quicklook>}></Route>
-            <Route path="/fileview" element={<Fileview></Fileview>}></Route>
+            <Route
+              path="/quicklook"
+              element={<Rasterview></Rasterview>}></Route>
           </Route>
         </Routes>
       </div>
