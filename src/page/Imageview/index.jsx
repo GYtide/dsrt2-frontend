@@ -8,7 +8,9 @@ const Imageview = () => {
   return (
     <div className="imageview">
       <Toolssider></Toolssider>
-      <Rasterview></Rasterview>
+      <div className="rasterpanel">
+        <Rasterview></Rasterview>
+      </div>
       <Filelist></Filelist>
     </div>
   )
