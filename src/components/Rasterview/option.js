@@ -3,7 +3,7 @@ const option = {
     top: '2%',
     bottom: '5%',
     left: '4%',
-    right: '1%',
+    right: '5%',
   },
   xAxis: [
     {
