@@ -1,30 +1,31 @@
 import { Radio, Space, Card, Table, Tag } from 'antd'
+import './index.scss'
 const data = [
-  {
-    key: '1',
-    name: '150 Mhz',
-    tags: ['10:00', '12:30'],
-  },
-  {
-    key: '2',
-    name: '200.7 Mhz',
-    tags: ['11:00', '12:30'],
-  },
-  {
-    key: '3',
-    name: '233.11 Mhz',
-    tags: ['09:00', '12:30'],
-  },
-  {
-    key: '4',
-    name: '300.12 Mhz',
-    tags: ['09:00', '12:30'],
-  },
-  {
-    key: '5',
-    name: '450 Mhz',
-    tags: ['09:00', '12:30'],
-  },
+  // {
+  //   key: '1',
+  //   name: '150 Mhz',
+  //   tags: ['10:00', '12:30'],
+  // },
+  // {
+  //   key: '2',
+  //   name: '200.7 Mhz',
+  //   tags: ['11:00', '12:30'],
+  // },
+  // {
+  //   key: '3',
+  //   name: '233.11 Mhz',
+  //   tags: ['09:00', '12:30'],
+  // },
+  // {
+  //   key: '4',
+  //   name: '300.12 Mhz',
+  //   tags: ['09:00', '12:30'],
+  // },
+  // {
+  //   key: '5',
+  //   name: '450 Mhz',
+  //   tags: ['09:00', '12:30'],
+  // },
 ]
 const columns = [
   {
