@@ -4,7 +4,7 @@ import Toolssider from '@/components/Toolssider'
 import Rasterview from '@/components/Rasterview'
 import Filelist from '@/components/Filelist'
 import Progressbar from '@/components/Progressbar'
-
+import ColorBar from '@/components/ColorBar'
 const Imageview = () => {
   return (
     <div className="imageview">
@@ -12,6 +12,7 @@ const Imageview = () => {
       <div className="rasterpanel">
         <div className="raster-view">
           <Rasterview></Rasterview>
+          <ColorBar></ColorBar>
         </div>
 
         <Progressbar></Progressbar>

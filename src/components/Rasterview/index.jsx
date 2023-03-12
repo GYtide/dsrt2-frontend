@@ -18,7 +18,7 @@ const Rasterview = () => {
     console.log(myChart)
   }, [])
 
-  return <div className="rastercharts" ref={domRef}></div>
+  return <div style={{ flex: 25 }} ref={domRef}></div>
 }
 
 export default Rasterview
