@@ -38,3 +38,5 @@ class RenderConfigStore {
   inverted = false // boolean; 是否反色
 
 }
+
+export default RenderConfigStore
