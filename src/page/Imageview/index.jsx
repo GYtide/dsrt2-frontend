@@ -10,7 +10,10 @@ const Imageview = () => {
     <div className="imageview">
       <Toolssider></Toolssider>
       <div className="rasterpanel">
-        <Rasterview></Rasterview>
+        <div className="raster-view">
+          <Rasterview></Rasterview>
+        </div>
+
         <Progressbar></Progressbar>
       </div>
       <Filelist></Filelist>
