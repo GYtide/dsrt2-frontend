@@ -11,7 +11,9 @@ const Rasterview = () => {
   const domRef = useRef()
 
   useEffect(() => {
-    const myChart = echarts.init(domRef.current)
+    const myChart = echarts.init(domRef.current, null, {
+      renderer: 'svg',
+    })
     myChart.setOption(option)
     console.log(myChart)
   }, [])
