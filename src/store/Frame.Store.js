@@ -15,10 +15,14 @@ class FrameStore {
   constructor() {
     makeAutoObservable(this)
     this.renderConfig = new RenderConfigStore() //渲染状态的实例化管理现在的渲染状态
+
+    // 用于显示的canvas对象以及其上下文
+    this.canvas = document.createElement('canvas')
+    this.context = this.canvas.getContext('2d')
   }
 
+  
 
-  get
 }
 
 export { FrameStore }
