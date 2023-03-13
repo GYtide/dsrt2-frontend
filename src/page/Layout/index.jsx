@@ -24,14 +24,13 @@ import './index.scss'
 import { Outlet, Link, useSearchParams } from 'react-router-dom'
 import { useState } from 'react'
 import { observer } from 'mobx-react-lite'
-
 import { useStore } from '@/store'
 
 // 解构 antd Layout
 const { Header, Sider } = Layout
 
 const GeekLayout = () => {
-  const { timeStore } = useStore()
+  const { timeStore, imageFileList } = useStore()
 
   return (
     <Layout>
@@ -84,6 +83,7 @@ const GeekLayout = () => {
               theme="light"
               style={{ height: 'auto', borderRight: 0, padding: 10 }}>
               <Button
+                onClick={imageFileList.setChannelList}
                 type="primary"
                 icon={<DiffOutlined />}
                 style={{ padding: 10, marginBottom: 20, alignItems: 'center' }}

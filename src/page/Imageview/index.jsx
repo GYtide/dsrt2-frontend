@@ -5,7 +5,11 @@ import Rasterview from '@/components/Rasterview'
 import Filelist from '@/components/Filelist'
 import Progressbar from '@/components/Progressbar'
 import ColorBar from '@/components/ColorBar'
+import { useStore } from '@/store'
+import { observer } from 'mobx-react-lite'
+
 const Imageview = () => {
+  const { imageFileList } = useStore()
   return (
     <div className="imageview">
       <Toolssider></Toolssider>
@@ -17,9 +21,9 @@ const Imageview = () => {
 
         <Progressbar></Progressbar>
       </div>
-      <Filelist></Filelist>
+      <Filelist data={imageFileList.fileListdata}></Filelist>
     </div>
   )
 }
 
-export default Imageview
+export default observer(Imageview)
