@@ -82,14 +82,14 @@ const GeekLayout = () => {
             <Menu
               mode="inline"
               theme="light"
-              // defaultSelectedKeys={['1']}
               style={{ height: 'auto', borderRight: 0, padding: 10 }}>
-              <Menu.Item
-                style={{ padding: 10, marginBottom: 20 }}
+              <Button
+                type="primary"
                 icon={<DiffOutlined />}
-                key="2">
+                style={{ padding: 10, marginBottom: 20, alignItems: 'center' }}
+                size="large">
                 开始检索
-              </Menu.Item>
+              </Button>
             </Menu>
           </Form>
         </Sider>
