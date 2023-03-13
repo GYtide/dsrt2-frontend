@@ -11,6 +11,9 @@ class CurrentImageFits {
     makeAutoObservable(this)
     this.filename = ''
     this.header = []
+    /**
+     * 
+     */
     this.data = { 'stokesi': [], 'stokesv': [] }
   }
 
@@ -21,7 +24,7 @@ class CurrentImageFits {
       const res = await http.get(
         `/data/imagefile/?type=openfile&fname=${this.filename}`
       )
-      console.log(res)
+      console.log(JSON.stringify(res[0]))
       this.header = res[0]
       this.data[res[1]['stokes']][res[1].index] = res[1].frame
     }
