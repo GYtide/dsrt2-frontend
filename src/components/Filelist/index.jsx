@@ -12,36 +12,8 @@ import './index.scss'
 //   tags: ['11:00', '12:30'],
 // }
 // ]
-const columns = [
-  {
-    title: '文件名',
-    dataIndex: 'name',
-    key: 'name',
-    render: (text) => <a>{text}</a>,
-  },
-  {
-    title: '时间范围',
-    key: 'tags',
-    dataIndex: 'tags',
-    render: (tags) => (
-      <span>
-        {tags.map((tag) => {
-          let color = tag.length > 5 ? 'geekblue' : 'green'
-          if (tag === 'loser') {
-            color = 'volcano'
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          )
-        })}
-      </span>
-    ),
-  },
-]
 
-const Filelist = ({ data }) => {
+const Filelist = ({ data, columns }) => {
   console.log(data)
   return (
     <div className="filelist">

@@ -2,3 +2,18 @@
   flex-basis: 0px;
   flex-grow: 2;
 }
+
+// 作者：青菜中的油渣
+// 链接：https://juejin.cn/post/6844903839078809614
+// 来源：稀土掘金
+// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+.ant-table {
+  overflow: auto;
+}
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td {
+  overflow: hidden;
+  // white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100px;
+}
