@@ -5,7 +5,7 @@
 import { makeAutoObservable } from 'mobx'
 import { http } from '@/utils'
 
-class CurrentFits {
+class CurrentImageFits {
 
   constructor() {
     makeAutoObservable(this)
@@ -32,4 +32,4 @@ class CurrentFits {
 }
 
 
-export { CurrentFits }
+export { CurrentImageFits }

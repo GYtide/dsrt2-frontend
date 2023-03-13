@@ -10,7 +10,7 @@ import { observer } from 'mobx-react-lite'
 
 const Imageview = () => {
   const { imageFileList } = useStore()
-  const { currentFits } = useStore()
+  const { currentImageFits } = useStore()
 
   const columns = [
     {
@@ -20,8 +20,8 @@ const Imageview = () => {
       render: (text) => (
         <a
           onClick={() => {
-            currentFits.filename = text
-            currentFits.openFile()
+            currentImageFits.filename = text
+            currentImageFits.openFile()
           }}
           style={{ whiteSpace: 'pre-wrap' }}>
           {text}
