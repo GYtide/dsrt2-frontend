@@ -9,11 +9,8 @@ class CurrentImageFits {
 
   constructor() {
     makeAutoObservable(this)
-    this.filename = ''
-    this.header = []
-    /**
-     * 
-     */
+    this.filename = null
+    this.header = null
     this.data = { 'stokesi': [], 'stokesv': [] }
   }
 
@@ -24,7 +21,6 @@ class CurrentImageFits {
       const res = await http.get(
         `/data/imagefile/?type=openfile&fname=${this.filename}`
       )
-      console.log(JSON.stringify(res[0]))
       this.header = res[0]
       this.data[res[1]['stokes']][res[1].index] = res[1].frame
     }
@@ -33,6 +29,20 @@ class CurrentImageFits {
 
   addFrame = async () => {
 
+  }
+
+  /**
+   * 计算属性，用于获得扩展表中的第三维度即每个偏振有几张图片
+   */
+  get NAXIS2 () {
+    if (this.header) {
+      return this.header['header1'].NAXIS2
+      // console.log(this.header)
+      // return 1
+    }
+    else {
+      return 100
+    }
   }
 
 

@@ -14,7 +14,6 @@ import './index.scss'
 // ]
 
 const Filelist = ({ data, columns }) => {
-  console.log(data)
   return (
     <div className="filelist">
       <Card title="文件列表">
