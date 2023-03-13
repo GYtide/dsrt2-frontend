@@ -7,11 +7,12 @@ import { http } from '@/utils'
 
 class CurrentImageFits {
 
+  filename = null
+  header = null
+  data = { 'stokesi': [], 'stokesv': [] }
   constructor() {
     makeAutoObservable(this)
-    this.filename = null
-    this.header = null
-    this.data = { 'stokesi': [], 'stokesv': [] }
+
   }
 
   openFile = async () => {
@@ -45,7 +46,7 @@ class CurrentImageFits {
     }
   }
 
-
+  
 }
 
 

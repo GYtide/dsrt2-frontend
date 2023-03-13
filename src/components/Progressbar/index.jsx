@@ -4,7 +4,6 @@ import { useStore } from '@/store'
 import { observer } from 'mobx-react-lite'
 const Progressbar = () => {
   const { currentImageFits } = useStore()
-  console.log(currentImageFits)
   const [disabled, setDisabled] = useState(false)
   const onChange = (checked) => {
     setDisabled(checked)
@@ -15,7 +14,7 @@ const Progressbar = () => {
         style={{ flex: 1 }}
         min={1}
         max={currentImageFits.NAXIS2}
-        defaultValue={0}
+        defaultValue={1}
         disabled={disabled}
       />
     </>
