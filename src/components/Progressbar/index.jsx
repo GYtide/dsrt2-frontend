@@ -15,6 +15,9 @@ const Progressbar = () => {
       max={currentImageFits.NAXIS2}
       defaultValue={1}
       disabled={disabled}
+      onChange={(value) => {
+        
+      }}
     />
   )
 }

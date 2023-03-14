@@ -40,9 +40,15 @@ class CurrentImageFits {
 
   }
 
-  addFrame = async () => {
+  updataFrame = async (index) => {
     
   }
+
+  addFrame = async () => {
+
+  }
+
+
 
   /**
    * 计算属性，用于获得扩展表中的第三维度即每个偏振有几张图片
