@@ -5,9 +5,8 @@ import { observer } from 'mobx-react-lite'
 const Progressbar = () => {
   const { currentImageFits } = useStore()
   const [disabled, setDisabled] = useState(false)
-  const onChange = (checked) => {
-    setDisabled(checked)
-  }
+
+  
   return (
     <Slider
       style={{ flex: 1 }}

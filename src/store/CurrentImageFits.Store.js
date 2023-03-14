@@ -80,7 +80,7 @@ class CurrentImageFits {
       // return 1
     }
     else {
-      return 100
+      return 1
     }
   }
 
