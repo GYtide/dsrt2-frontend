@@ -1,57 +1,39 @@
-import { Card, Dropdown, Button } from 'antd'
+import { Card, Dropdown, Button, Space } from 'antd'
 import './index.scss'
 import { useStore } from '@/store'
+import { observer } from 'mobx-react-lite'
 const items = [
   {
+    key: '0',
+    label: 'gray',
+  },
+  {
     key: '1',
-    label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.antgroup.com">
-        1st menu item
-      </a>
-    ),
+    label: 'hot',
   },
   {
     key: '2',
-    label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.aliyun.com">
-        2nd menu item
-      </a>
-    ),
-  },
-  {
-    key: '3',
-    label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.luohanacademy.com">
-        3rd menu item
-      </a>
-    ),
+    label: 'jet',
   },
 ]
 const Toolssider = () => {
-  const { renderConfig } = useStore()
-  console.log(renderConfig)
+  const { currentImageFits } = useStore()
+  const onClick = ({ key }) => {
+    currentImageFits.renderConfig.colorMapIndex = key
+  }
   return (
     <div className="toolssider">
+      {}
       <Card title="渲染设置">
-        <Dropdown
-          menu={{
-            items,
-          }}
-          placement="bottomLeft">
-          <Button></Button>
-        </Dropdown>
+        <Space>
+          {'色标：'}
+          <Dropdown menu={{ items, onClick }} placement="bottomLeft">
+            <Button>{currentImageFits.renderConfig.colorMap}</Button>
+          </Dropdown>
+        </Space>
       </Card>
     </div>
   )
 }
 
-export default Toolssider
+export default observer(Toolssider)

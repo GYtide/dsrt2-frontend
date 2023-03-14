@@ -8,7 +8,6 @@ import { useStore } from '@/store'
 // import option from './option'
 import { observer } from 'mobx-react-lite'
 import './index.scss'
-import { values } from 'mobx'
 
 const Rasterview = () => {
   const { currentImageFits } = useStore()

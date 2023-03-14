@@ -20,7 +20,6 @@ class CurrentImageFits {
 
   constructor() {
     makeAutoObservable(this)
-
   }
 
   openFile = async () => {

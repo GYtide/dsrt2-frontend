@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx'
 import { RenderConfigStore } from './RenderConfig.Store'
-
+import colormap from 'colormap'
 /**
  * 
  * 维护一个canvas对象，在 echarts 图标的坐标系中显示。
