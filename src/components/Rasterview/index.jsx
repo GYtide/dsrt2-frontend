@@ -3,11 +3,12 @@ import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/grid'
 import 'echarts/lib/component/dataZoom'
 import { useEffect, useRef, useState, createContext, useContext } from 'react'
-
+import { useStore } from '@/store'
 import option from './option'
 import './index.scss'
 
 const Rasterview = () => {
+  const { currentImageFits } = useStore()
   const domRef = useRef()
 
   useEffect(() => {
@@ -15,7 +16,6 @@ const Rasterview = () => {
       renderer: 'svg',
     })
     myChart.setOption(option)
-    console.log(myChart)
   }, [])
 
   return <div style={{ flex: 25 }} ref={domRef}></div>

@@ -4,12 +4,16 @@
 
 import { makeAutoObservable } from 'mobx'
 import { http } from '@/utils'
+import { FrameStore } from './Frame.Store'
 
 class CurrentImageFits {
 
   filename = null
   header = null
-  data = { 'stokesi': [], 'stokesv': [] }
+  data = []
+  stokes = 'stokesi' //目前的偏振
+  index = 1 // 目前的帧序号
+  // frameStore = new FrameStore() //帧的状态
   constructor() {
     makeAutoObservable(this)
 
@@ -23,7 +27,7 @@ class CurrentImageFits {
         `/data/imagefile/?type=openfile&fname=${this.filename}`
       )
       this.header = res[0]
-      this.data[res[1]['stokes']][res[1].index] = res[1].frame
+      this.data[res[1].index] = res[1].frame
     }
 
   }
@@ -46,7 +50,24 @@ class CurrentImageFits {
     }
   }
 
-  
+  /**
+   * 计算属性，用于获得扩展表中的 TDIM4 即图片的宽高
+   */
+
+  get TDIM4 () {
+    if (this.header) {
+      return this.header['header1'].TDIM4
+    }
+    else {
+      return 100
+    }
+  }
+
+  get xAxis () {
+
+  }
+
+
 }
 
 
