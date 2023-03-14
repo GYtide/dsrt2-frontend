@@ -41,7 +41,7 @@ class CurrentImageFits {
   }
 
   addFrame = async () => {
-
+    
   }
 
   /**

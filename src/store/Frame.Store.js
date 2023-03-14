@@ -9,12 +9,11 @@ import { RenderConfigStore } from './RenderConfig.Store'
 class FrameStore {
 
 
-  frameData = [[255, 255],
-  [255, 255],] //原始的数据
-  width = 2
-  height = 2
-  xAxis = [-2, -1, 0, 1]
-  yAxis = [-2, -1, 0, 1]
+  frameData = [[255]] //原始的数据
+  width = 1
+  height = 1
+  xAxis = [0, 1]
+  yAxis = [0, 1]
   cursorValue = { position: { x: 0, y: 0 }, value: null, isInsideImage: false };//鼠标状态
   renderConfig = new RenderConfigStore()
   canvas = document.createElement('canvas')
