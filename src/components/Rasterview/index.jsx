@@ -18,7 +18,7 @@ const Rasterview = () => {
       renderer: 'svg',
       forceUseOldCanvas: false,
     })
-    console.log(myChart)
+
     myChart.setOption({
       ...option,
       tooltip: {
@@ -49,8 +49,8 @@ const Rasterview = () => {
           type: 'custom',
           geoIndex: 0,
           renderItem: function (params, api) {
-            var x = myChart.convertToPixel('grid', [-64])[0]
-            var y = myChart.convertToPixel('grid', [100, 120])[1]
+            var x = myChart.convertToPixel('grid', [-1])[0]
+            var y = myChart.convertToPixel('grid', [100, 1])[1]
 
             return {
               type: 'image',
@@ -59,10 +59,10 @@ const Rasterview = () => {
                 x: x,
                 y: y,
                 width:
-                  myChart.convertToPixel('grid', [128])[0] -
+                  myChart.convertToPixel('grid', [2])[0] -
                   myChart.convertToPixel('grid', [0])[0],
                 height:
-                  myChart.convertToPixel('grid', [128])[0] -
+                  myChart.convertToPixel('grid', [2])[0] -
                   myChart.convertToPixel('grid', [0])[0],
               },
               z: -1,

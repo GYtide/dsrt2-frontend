@@ -40,8 +40,8 @@ const option = {
   ],
   yAxis: [
     {
-      min: 0,
-      max: 128,
+      min: -100,
+      max: 100,
       type: 'value',
       axisLine: { onZero: false },
       axisTick: {
@@ -52,8 +52,8 @@ const option = {
       },
     },
     {
-      min: 0,
-      max: 128,
+      min: -100,
+      max: 100,
       type: 'value',
       position: 'right',
       axisLabel: {

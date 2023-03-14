@@ -12,7 +12,7 @@ import option from './option'
 const ColorBar = () => {
   const domRef = useRef()
   const initChart = () => {
-    let myChart = echarts.init(domRef.current, null, {
+    const myChart = echarts.init(domRef.current, null, {
       renderer: 'svg',
     }) //初始化echarts
 

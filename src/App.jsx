@@ -3,13 +3,7 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import { observer } from 'mobx-react-lite'
 import { useStore } from './store/index'
-import { history } from './utils/history'
-import {
-  unstable_HistoryRouter as HistoryRouter,
-  Routes,
-  Route,
-  BrowserRouter,
-} from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 // import { Router, Route, Routes, BrowserRouter } from 'react-router-dom'
 
 import GeekLayout from './page/Layout'
@@ -20,7 +14,7 @@ import Rasterview from './components/Rasterview'
 function App() {
   const { counterStore } = useStore()
   return (
-    <HistoryRouter history={history}>
+    <BrowserRouter>
       <div className="App">
         <Routes>
           <Route path="/" element={<GeekLayout />}>
@@ -31,7 +25,7 @@ function App() {
           </Route>
         </Routes>
       </div>
-    </HistoryRouter>
+    </BrowserRouter>
   )
 }
 
