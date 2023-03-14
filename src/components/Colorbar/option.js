@@ -41,7 +41,6 @@ const option = {
     {
       type: 'bar',
       barWidth: 70,
-      data: [30, 49, 26, 60, 26], //数据
       itemStyle: {
         normal: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [

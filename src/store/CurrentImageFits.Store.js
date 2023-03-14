@@ -6,6 +6,7 @@ import { makeAutoObservable } from 'mobx'
 import { http } from '@/utils'
 import { FrameStore } from './Frame.Store'
 
+
 class CurrentImageFits {
 
   filename = null
@@ -13,7 +14,8 @@ class CurrentImageFits {
   data = []
   stokes = 'stokesi' //目前的偏振
   index = 1 // 目前的帧序号
-  // frameStore = new FrameStore() //帧的状态
+  frame = new FrameStore() //帧的状态
+
   constructor() {
     makeAutoObservable(this)
 

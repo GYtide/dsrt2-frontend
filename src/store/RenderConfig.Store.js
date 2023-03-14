@@ -39,4 +39,4 @@ class RenderConfigStore {
 
 }
 
-export default RenderConfigStore
+export { RenderConfigStore }
