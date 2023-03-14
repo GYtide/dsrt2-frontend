@@ -9,15 +9,13 @@ const Progressbar = () => {
     setDisabled(checked)
   }
   return (
-    <>
-      <Slider
-        style={{ flex: 1 }}
-        min={1}
-        max={currentImageFits.NAXIS2}
-        defaultValue={1}
-        disabled={disabled}
-      />
-    </>
+    <Slider
+      style={{ flex: 1 }}
+      min={1}
+      max={currentImageFits.NAXIS2}
+      defaultValue={1}
+      disabled={disabled}
+    />
   )
 }
 export default observer(Progressbar)
