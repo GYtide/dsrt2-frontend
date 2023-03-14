@@ -48,8 +48,8 @@ class FrameStore {
       rasterdata[4 * i + 2] = scaled[i]
       rasterdata[4 * i + 3] = 255
     }
+    console.log(rasterdata)
     var imageData = this.context.getImageData(0, 0, this.canvas.width, this.canvas.height)
-    this.context.setTransform(1, 0, 0, 1, 0, 0)
     imageData.data.set(rasterdata)
     this.context.imageSmoothingEnabled = false
     this.context.putImageData(imageData, 0, 0)
@@ -62,7 +62,6 @@ class FrameStore {
     this.frameData = frame
     this.height = height
     this.width = width
-    console.log(this.width, this.height, this.frameData.flat())
   }
 
 
