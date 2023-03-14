@@ -21,36 +21,13 @@ const Rasterview = () => {
     setCanvasInstance(myChart)
     myChart.setOption({
       ...option,
-      tooltip: {
-        // trigger: 'axis',
-        axisPointer: {
-          type: 'cross',
-          crossStyle: {
-            color: '#999',
-          },
-        },
-        formatter: function (params) {
-          return ``
-        },
-        position: function (point, params, dom) {
-          // 指定 tooltip 的位置，可以根据需要调整
-          return [point[0] + 10, point[1] - 50]
-        },
-        backgroundColor: '#fff',
-        borderColor: '#ccc',
-        borderWidth: 1,
-        padding: 5,
-        textStyle: {
-          color: '#333',
-        },
-      },
       series: [
         {
           type: 'custom',
           geoIndex: 0,
           renderItem: function (params, api) {
-            var x = myChart.convertToPixel('grid', [-1])[0]
-            var y = myChart.convertToPixel('grid', [100, 1])[1]
+            var x = myChart.convertToPixel('grid', [2.5])[0]
+            var y = myChart.convertToPixel('grid', [100, 3.5])[1]
 
             return {
               type: 'image',
@@ -80,36 +57,69 @@ const Rasterview = () => {
     if (canvasInstance) {
       canvasInstance.setOption({
         ...option,
-        tooltip: {
-          // trigger: 'axis',
-          axisPointer: {
-            type: 'cross',
-            crossStyle: {
-              color: '#999',
+        xAxis: [
+          {
+            type: 'category',
+            position: 'top',
+            axisLine: { onZero: false },
+            // axisLine: { lineStyle: { width: -0.1 } },
+            axisLabel: {
+              // 隐藏X轴刻度数字
+              show: false,
+            },
+            axisTick: {
+              // 隐藏X轴刻度
+              show: true,
+              alignWithLabel: true,
+              length: -5,
             },
           },
-          formatter: function (params) {
-            return ``
+          {
+            type: 'category',
+            position: 'bottom',
+            axisLine: { onZero: false },
+            axisTick: {
+              // 隐藏X轴刻度
+              show: true,
+              alignWithLabel: true,
+              length: -5,
+            },
           },
-          position: function (point, params, dom) {
-            // 指定 tooltip 的位置，可以根据需要调整
-            return [point[0] + 10, point[1] - 50]
+        ],
+        yAxis: [
+          {
+            type: 'catagroy',
+            axisLine: { onZero: false },
+            axisTick: {
+              // 隐藏X轴刻度
+              show: true,
+              alignWithLabel: true,
+              length: -5,
+            },
           },
-          backgroundColor: '#fff',
-          borderColor: '#ccc',
-          borderWidth: 1,
-          padding: 5,
-          textStyle: {
-            color: '#333',
+          {
+            type: 'category',
+            position: 'right',
+            axisLabel: {
+              // 隐藏X轴刻度数字
+              show: false,
+            },
+            axisTick: {
+              // 隐藏X轴刻度
+              show: true,
+              alignWithLabel: true,
+              length: -5,
+            },
+            axisLine: { onZero: false },
           },
-        },
+        ],
         series: [
           {
             type: 'custom',
             geoIndex: 0,
             renderItem: function (params, api) {
               var x = myChart.convertToPixel('grid', [-1])[0]
-              var y = myChart.convertToPixel('grid', [100, 1])[1]
+              var y = myChart.convertToPixel('grid', [0, 1])[1]
 
               return {
                 type: 'image',
