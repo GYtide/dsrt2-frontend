@@ -18,7 +18,7 @@ const Rasterview = () => {
   const option = {
     grid: {
       top: '1%',
-      bottom: '4.1%',
+      bottom: '7%',
       left: '10%',
       right: '10%',
       containLabel: true,
@@ -49,6 +49,7 @@ const Rasterview = () => {
     xAxis: [
       {
         type: 'category',
+        boundaryGap: false,
         position: 'top',
         axisLine: { onZero: false },
         data: currentImageFits.frame.xAxis,
@@ -66,6 +67,7 @@ const Rasterview = () => {
       {
         type: 'category',
         position: 'bottom',
+        boundaryGap: false,
         data: currentImageFits.frame.xAxis.map((value) => value.toFixed(1)),
         axisLine: { onZero: false },
         axisTick: {
@@ -78,6 +80,9 @@ const Rasterview = () => {
     ],
     yAxis: [
       {
+        name: 'y',
+        nameLocation: 'end',
+        boundaryGap: false,
         type: 'category',
         data: currentImageFits.frame.yAxis.map((value) => value.toFixed(1)),
         axisLabel: {
@@ -93,6 +98,7 @@ const Rasterview = () => {
       },
       {
         type: 'category',
+        boundaryGap: false,
         position: 'right',
         data: currentImageFits.frame.xAxis,
         axisLabel: {
