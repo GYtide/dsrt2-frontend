@@ -80,7 +80,9 @@ const Rasterview = () => {
       {
         type: 'category',
         data: currentImageFits.frame.yAxis.map((value) => value.toFixed(1)),
-        axisLabel: {},
+        axisLabel: {
+          interval: 3,
+        },
         axisLine: { onZero: false },
         axisTick: {
           // 隐藏X轴刻度
