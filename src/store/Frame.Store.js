@@ -13,6 +13,8 @@ class FrameStore {
   [255, 255],] //原始的数据
   width = 2
   height = 2
+  xAxis = [-2, -1, 0, 1]
+  yAxis = [-2, -1, 0, 1]
   cursorValue = { position: { x: 0, y: 0 }, value: null, isInsideImage: false };//鼠标状态
   renderConfig = new RenderConfigStore()
   canvas = document.createElement('canvas')
@@ -58,10 +60,12 @@ class FrameStore {
 
   }
 
-  updataFrame = (frame, width, height) => {
+  updataFrame = (frame, width, height, xAxis, yAxis) => {
     this.frameData = frame
     this.height = height
     this.width = width
+    this.xAxis = xAxis
+    this.yAxis = yAxis
   }
 
 
