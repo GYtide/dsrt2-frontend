@@ -4,6 +4,7 @@ const option = {
     bottom: '5%',
     left: '4%',
     right: '5%',
+    containLabel: true,
   },
   xAxis: [
     {
