@@ -65,6 +65,9 @@ const Rasterview = () => {
         },
       },
       {
+        name: '角秒(arcsec)',
+        nameLocation: 'middle',
+        nameGap: 30,
         type: 'category',
         position: 'bottom',
         boundaryGap: false,
@@ -80,9 +83,10 @@ const Rasterview = () => {
     ],
     yAxis: [
       {
-        name: 'y',
-        nameLocation: 'end',
+        name: '角秒(arcsec)',
+        nameLocation: 'middle',
         boundaryGap: false,
+        nameGap: 50,
         type: 'category',
         data: currentImageFits.frame.yAxis.map((value) => value.toFixed(1)),
         axisLabel: {
