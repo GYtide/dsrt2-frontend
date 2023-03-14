@@ -78,19 +78,15 @@ const GeekLayout = () => {
                 }}
               />
             </Card>
-            <Menu
-              mode="inline"
-              theme="light"
-              style={{ height: 'auto', borderRight: 0, padding: 10 }}>
-              <Button
-                onClick={imageFileList.setChannelList}
-                type="primary"
-                icon={<DiffOutlined />}
-                style={{ padding: 10, marginBottom: 20, alignItems: 'center' }}
-                size="large">
-                开始检索
-              </Button>
-            </Menu>
+
+            <Button
+              onClick={imageFileList.setChannelList}
+              type="primary"
+              icon={<DiffOutlined />}
+              style={{ padding: 10, marginBottom: 20, alignItems: 'center' }}
+              size="large">
+              开始检索
+            </Button>
           </Form>
         </Sider>
         <Layout className="layout-content" style={{ padding: 20 }}>
