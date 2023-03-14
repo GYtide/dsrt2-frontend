@@ -41,11 +41,31 @@ class CurrentImageFits {
   }
 
   updataFrame = async (index) => {
-    
+    this.index = index
+    // 如果存在数据就直接设为 index 所指向的数据
+    if (this.data[this.index]) {
+      this.frame.updataFrame(this.data[this.index][this.stokes],
+        this.data[this.index][this.stokes].length,
+        this.data[this.index][this.stokes][0].length,
+        this.data[this.index]['sunx'],
+        this.data[this.index]['suny'])
+    }
+    else {
+      this.addFrame(index)
+      console.log(this.index, this.stokes, this.data)
+      // this.frame.updataFrame(this.data[this.index][this.stokes],
+      //   this.data[this.index][this.stokes].length,
+      //   this.data[this.index][this.stokes][0].length,
+      //   this.data[this.index]['sunx'],
+      //   this.data[this.index]['suny'])
+    }
   }
 
-  addFrame = async () => {
-
+  addFrame = async (index) => {
+    const res = await http.get(
+      `/data/imagefile/?type=appdata&fname=${this.filename}&index=${index}`
+    )
+    this.data[res[0].index] = res[0].frame
   }
 
 

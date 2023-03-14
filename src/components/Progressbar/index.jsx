@@ -16,7 +16,7 @@ const Progressbar = () => {
       defaultValue={1}
       disabled={disabled}
       onChange={(value) => {
-        
+        currentImageFits.updataFrame(value)
       }}
     />
   )
