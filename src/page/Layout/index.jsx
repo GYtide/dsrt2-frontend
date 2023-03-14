@@ -53,7 +53,9 @@ const GeekLayout = () => {
               bordered={false}
               style={{ width: 200, height: 'auto' }}>
               <DatePicker
-                value={timeStore.date}
+                // value={timeStore.date}
+                value={dayjs('2022-04-17T01:12:23')}
+                disabled
                 onChange={(date, dateString) => {
                   timeStore.setDate(date)
                 }}
@@ -65,14 +67,18 @@ const GeekLayout = () => {
               style={{ width: 200, height: 'auto' }}>
               <TimePicker
                 style={{ padding: 10, margin: 10 }}
-                value={timeStore.start}
+                // value={timeStore.start}
+                disabled
+                value={dayjs('2022-04-17T01:12:23')}
                 onChange={(date, dateString) => {
                   timeStore.setStart(date)
                 }}
               />
               <TimePicker
                 style={{ padding: 10, margin: 10 }}
-                value={timeStore.end}
+                // value={timeStore.end}
+                disabled
+                value={dayjs('2022-04-17T12:12:23')}
                 onChange={(date, dateString) => {
                   timeStore.setEnd(date)
                 }}
