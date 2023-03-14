@@ -5,6 +5,7 @@
 import { makeAutoObservable } from 'mobx'
 import { http } from '@/utils'
 import { FrameStore } from './Frame.Store'
+import { RenderConfigStore } from './RenderConfig.Store'
 
 
 class CurrentImageFits {
@@ -15,6 +16,7 @@ class CurrentImageFits {
   stokes = 'stokesi' //目前的偏振
   index = 1 // 目前的帧序号
   frame = new FrameStore() //帧的状态
+  renderConfig = new RenderConfigStore()
 
   constructor() {
     makeAutoObservable(this)
@@ -52,11 +54,6 @@ class CurrentImageFits {
     }
     else {
       this.addFrame(index)
-      // this.frame.updataFrame(this.data[this.index][this.stokes],
-      //   this.data[this.index][this.stokes].length,
-      //   this.data[this.index][this.stokes][0].length,
-      //   this.data[this.index]['sunx'],
-      //   this.data[this.index]['suny'])
     }
   }
 
