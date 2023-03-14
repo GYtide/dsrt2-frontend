@@ -83,7 +83,12 @@ const GeekLayout = () => {
               onClick={imageFileList.setChannelList}
               type="primary"
               icon={<DiffOutlined />}
-              style={{ padding: 10, marginBottom: 20, alignItems: 'center' }}
+              style={{
+                padding: 10,
+                marginLeft: 30,
+                marginBottom: 20,
+                alignItems: 'center',
+              }}
               size="large">
               开始检索
             </Button>
