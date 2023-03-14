@@ -1,4 +1,12 @@
-.rastercharts {
-  // flex-basis: 0px;
-  flex-grow: 25;
+.rasterchart {
+  svg image {
+    shape-rendering: crispEdges;
+    image-rendering: -moz-crisp-edges;
+    /* Firefox */
+    image-rendering: -webkit-optimize-contrast;
+    /* Webkit */
+    /* image-rendering: pixelated; */
+    /* CSS4 */
+    /* image-rendering: crisp-edges; */
+  }
 }

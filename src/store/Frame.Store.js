@@ -9,8 +9,12 @@ import { RenderConfigStore } from './RenderConfig.Store'
 class FrameStore {
 
 
-  frameData = [] //原始的数据
-
+  frameData = [[255, 0, 0],
+  [0, 255, 0],
+  [0, 0, 255],
+  [255, 255, 0]] //原始的数据
+  width = 3
+  height = 4
   cursorValue = { position: { x: 0, y: 0 }, value: null, isInsideImage: false };//鼠标状态
   renderConfig = new RenderConfigStore()
   canvas = document.createElement('canvas')
@@ -21,29 +25,46 @@ class FrameStore {
     // 用于显示的canvas对象以及其上下文
     this.context.scale(1, -1)
     // 使用translate()函数调整y轴位置
+    this.context.imageSmoothingEnabled = false
     this.context.translate(0, this.canvas.height)
   }
 
   get canvasInstance () {
+    this.canvas.width = this.width
+    this.canvas.height = this.height
 
-    const normalized = this.frameData.map(value => (value - min) / (max - min))
+    var crxData = this.frameData.flat()
 
-    // 缩放至0到255之间
+    var min = Math.min(...crxData)
+    var max = Math.max(...crxData)
+
+    const normalized = crxData.map(value => (value - min) / (max - min))
+
+    // // 缩放至0到255之间
     const scaled = normalized.map(value => Math.round(value * 255))
-    var rasterdata = []
 
-    for (let i = 0; i < this.frameData.length; ++i) {
+    var rasterdata = []
+    for (let i = 0; i < crxData.length; ++i) {
       rasterdata[4 * i] = scaled[i]
       rasterdata[4 * i + 1] = scaled[i]
       rasterdata[4 * i + 2] = scaled[i]
       rasterdata[4 * i + 3] = 255
     }
-    var imageData = this.context.getImageData(0, 0, canvas.width, canvas.height)
+    var imageData = this.context.getImageData(0, 0, this.canvas.width, this.canvas.height)
+    this.context.setTransform(1, 0, 0, 1, 0, 0)
     imageData.data.set(rasterdata)
+    this.context.imageSmoothingEnabled = false
     this.context.putImageData(imageData, 0, 0)
 
     return this.canvas
 
+  }
+
+  updataFrame = (frame, width, height) => {
+    this.frameData = frame
+    this.height = height
+    this.width = width
+    console.log(this.width, this.height, this.frameData.flat())
   }
 
 

@@ -30,6 +30,8 @@ class CurrentImageFits {
       )
       this.header = res[0]
       this.data[res[1].index] = res[1].frame
+      this.index = 1
+      this.frame.updataFrame(this.data[this.index][this.stokes], this.data[this.index][this.stokes].length, this.data[this.index][this.stokes][0].length)
     }
 
   }
