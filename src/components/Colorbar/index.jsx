@@ -3,6 +3,7 @@ import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/grid'
 import 'echarts/lib/chart/bar'
 import { useEffect, useRef, useState } from 'react'
+import { useStore } from '@/store'
 
 /**
  * colorbar 使用Echarts实现：一个很窄的图标，colorbar的对应数值就是Y轴，
@@ -10,6 +11,7 @@ import { useEffect, useRef, useState } from 'react'
  */
 
 const ColorBar = () => {
+  const { currentImageFits } = useStore()
   const option = {
     animation: false,
     grid: {

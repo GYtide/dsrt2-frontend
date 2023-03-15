@@ -173,6 +173,47 @@ const Rasterview = () => {
         },
       ],
     })
+  }, [])
+  useEffect(() => {
+    if (canvasInstance) {
+      canvasInstance.setOption({
+        ...option,
+        series: [
+          {
+            type: 'custom',
+            geoIndex: 0,
+            renderItem: function (params, api) {
+              var x = canvasInstance.convertToPixel('grid', [0])[0]
+              var y = canvasInstance.convertToPixel('grid', [
+                100,
+                currentImageFits.frame.width - 1,
+              ])[1]
+
+              return {
+                type: 'image',
+                style: {
+                  image: currentImageFits.frame.canvasInstance,
+                  x: x,
+                  y: y,
+                  width:
+                    canvasInstance.convertToPixel('grid', [
+                      currentImageFits.frame.width,
+                    ])[0] - canvasInstance.convertToPixel('grid', [0])[0],
+                  height:
+                    canvasInstance.convertToPixel('grid', [
+                      currentImageFits.frame.height,
+                    ])[0] - canvasInstance.convertToPixel('grid', [0])[0],
+                },
+                z: -1,
+              }
+            },
+            clip: true,
+            silent: true,
+            data: [0],
+          },
+        ],
+      })
+    }
   })
 
   return <div className="rasterchart" style={{ flex: 25 }} ref={domRef}></div>
