@@ -34,7 +34,7 @@ class FrameStore {
     this.context.translate(0, this.canvas.height)
 
   }
-
+  
 
   get canvasInstance () {
     this.canvas.width = this.width

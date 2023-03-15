@@ -12,7 +12,7 @@ const option = {
   xAxis: [
     {
       type: 'category',
-      data: ['Hot'],
+      data: [],
       axisTick: {
         alignWithLabel: true,
       },
@@ -45,16 +45,16 @@ const option = {
       itemStyle: {
         normal: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: '#06B5D7' }, //柱图渐变色
-            { offset: 0.5, color: '#44C0C1' }, //柱图渐变色
-            { offset: 1, color: '#71C8B1' }, //柱图渐变色
+            { offset: 0, color: '#000000' }, //柱图渐变色
+            { offset: 0.5, color: '#e60000' }, //柱图渐变色
+            { offset: 1, color: '#ffffff' }, //柱图渐变色
           ]),
         },
         emphasis: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: '#71C8B1' }, //柱图高亮渐变色
-            { offset: 0.7, color: '#44C0C1' }, //柱图高亮渐变色
-            { offset: 1, color: '#06B5D7' }, //柱图高亮渐变色
+            { offset: 0, color: '#000000' }, //柱图高亮渐变色
+            { offset: 0.7, color: '#e60000' }, //柱图高亮渐变色
+            { offset: 1, color: '#ffffff' }, //柱图高亮渐变色
           ]),
         },
       },
