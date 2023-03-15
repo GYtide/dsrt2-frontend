@@ -46,11 +46,17 @@ class FrameStore {
    *     ]
    */
   get colorMapbar () {
+    var colorindex = this.colorMapIndex
+    var colorMap = this.COLOR_MAPS_SELECTED[colorindex]
     let colors = colormap({
       colormap: colorMap,
       nshades: 256,
-      format: 'rgb',
+      format: 'hex',
       alpha: 255
+    })
+
+    return colors.map((value, index) => {
+      return { offset: index / 255, color: value }
     })
 
   }

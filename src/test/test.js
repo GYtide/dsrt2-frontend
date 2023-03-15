@@ -14,6 +14,10 @@ let colors = colormap({
   alpha: 255
 })
 
-// colors.map((value,index)=>{offset:(255-index)/})
+let a = colors.map((value, index) => {
+  return { offset: index / 255, color: value }
+})
 
-console.log(colors[255])
+a.map((value,index)=>{
+  console.log(index,value)
+})

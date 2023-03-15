@@ -13,6 +13,7 @@ import { observer } from 'mobx-react-lite'
 const ColorBar = () => {
   const { currentImageFits } = useStore()
   const [canvasInstance, setCanvasInstance] = useState(null)
+  console.log(currentImageFits.frame.colorMapbar)
 
   const option = {
     animation: false,
@@ -55,11 +56,13 @@ const ColorBar = () => {
         barWidth: 70,
         data: [currentImageFits.frame.max, currentImageFits.frame.max],
         itemStyle: {
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: '#000000' }, 
-            { offset: 0.7, color: '#e60000' }, 
-            { offset: 1, color: '#ffffff' }, 
-          ]),
+          color: new echarts.graphic.LinearGradient(
+            0,
+            1,
+            0,
+            0,
+            currentImageFits.frame.colorMapbar
+          ),
         },
       },
     ],
