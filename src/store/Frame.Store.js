@@ -13,6 +13,8 @@ class FrameStore {
   height = 1
   xAxis = [0, 1]
   yAxis = [0, 1]
+  min = 255
+  max = 0
   COLOR_MAPS_SELECTED = [
     "greys",
     "hot",
@@ -34,7 +36,7 @@ class FrameStore {
     this.context.translate(0, this.canvas.height)
 
   }
-  
+
 
   get canvasInstance () {
     this.canvas.width = this.width
@@ -42,13 +44,11 @@ class FrameStore {
 
     var crxData = this.frameData.flat()
 
-    var min = Math.min(...crxData)
-    var max = Math.max(...crxData)
+    var min = this.min
+    var max = this.max
     var colorindex = this.colorMapIndex
 
     var colorMap = this.COLOR_MAPS_SELECTED[colorindex]
-    console.log(colorMap)
-
 
     const normalized = crxData.map(value => (value - min) / (max - min))
 
@@ -96,6 +96,8 @@ class FrameStore {
     this.width = width
     this.xAxis = xAxis
     this.yAxis = yAxis
+    this.min = Math.min(...frame.flat())
+    this.max = Math.max(...frame.flat())
   }
 
   get colorMap () {

@@ -4,7 +4,7 @@ import 'echarts/lib/component/grid'
 import 'echarts/lib/chart/bar'
 import { useEffect, useRef, useState } from 'react'
 import { useStore } from '@/store'
-
+import { observer } from 'mobx-react-lite'
 /**
  * colorbar 使用Echarts实现：一个很窄的图标，colorbar的对应数值就是Y轴，
  * 没有X轴（X轴就是一个category），在数值区域显示一个渐变效果的条.
@@ -12,6 +12,8 @@ import { useStore } from '@/store'
 
 const ColorBar = () => {
   const { currentImageFits } = useStore()
+  const [canvasInstance, setCanvasInstance] = useState(null)
+
   const option = {
     animation: false,
     grid: {
@@ -33,8 +35,8 @@ const ColorBar = () => {
     yAxis: [
       {
         type: 'value',
-        min: 10,
-        max: 70,
+        min: currentImageFits.frame.min,
+        max: currentImageFits.frame.max,
         axisTick: {
           alignWithLabel: true,
         },
@@ -42,9 +44,6 @@ const ColorBar = () => {
         axisLabel: {
           rotate: 90,
           formatter: function (value, index) {
-            // value = parseFloat(value)
-            // //保留小数位数
-            // return value.toFixed(1)
             return value.toExponential(1)
           },
         },
@@ -54,22 +53,13 @@ const ColorBar = () => {
       {
         type: 'bar',
         barWidth: 70,
-        data: [70],
+        data: [currentImageFits.frame.max, currentImageFits.frame.max],
         itemStyle: {
-          normal: {
-            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              { offset: 0, color: '#000000' }, //柱图渐变色
-              { offset: 0.5, color: '#e60000' }, //柱图渐变色
-              { offset: 1, color: '#ffffff' }, //柱图渐变色
-            ]),
-          },
-          emphasis: {
-            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              { offset: 0, color: '#000000' }, //柱图高亮渐变色
-              { offset: 0.7, color: '#e60000' }, //柱图高亮渐变色
-              { offset: 1, color: '#ffffff' }, //柱图高亮渐变色
-            ]),
-          },
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: '#000000' }, //柱图高亮渐变色
+            { offset: 0.7, color: '#e60000' }, //柱图高亮渐变色
+            { offset: 1, color: '#ffffff' }, //柱图高亮渐变色
+          ]),
         },
       },
     ],
@@ -82,15 +72,22 @@ const ColorBar = () => {
 
     //设置options
     myChart.setOption(option)
+    setCanvasInstance(myChart)
     window.onresize = function () {
       myChart.resize()
     }
   }
   useEffect(() => {
     initChart()
+  }, [])
+
+  useEffect(() => {
+    if (canvasInstance) {
+      canvasInstance.setOption(option)
+    }
   }, [option])
 
   return <div ref={domRef} style={{ flex: 1 }}></div>
 }
 
-export default ColorBar
+export default observer(ColorBar)
