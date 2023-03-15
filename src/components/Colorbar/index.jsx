@@ -10,11 +10,8 @@ import { observer } from 'mobx-react-lite'
  * 没有X轴（X轴就是一个category），在数值区域显示一个渐变效果的条.
  */
 
-const ColorBar = () => {
-  const { currentImageFits } = useStore()
+const ColorBar = ({ currentFits }) => {
   const [canvasInstance, setCanvasInstance] = useState(null)
-  console.log(currentImageFits.frame.colorMapbar)
-
   const option = {
     animation: false,
     grid: {
@@ -36,8 +33,8 @@ const ColorBar = () => {
     yAxis: [
       {
         type: 'value',
-        min: currentImageFits.frame.min,
-        max: currentImageFits.frame.max,
+        min: currentFits.frame.min,
+        max: currentFits.frame.max,
         axisTick: {
           alignWithLabel: true,
         },
@@ -54,14 +51,14 @@ const ColorBar = () => {
       {
         type: 'bar',
         barWidth: 70,
-        data: [currentImageFits.frame.max, currentImageFits.frame.max],
+        data: [currentFits.frame.max, currentFits.frame.max],
         itemStyle: {
           color: new echarts.graphic.LinearGradient(
             0,
             1,
             0,
             0,
-            currentImageFits.frame.colorMapbar
+            currentFits.frame.colorMapbar
           ),
         },
       },

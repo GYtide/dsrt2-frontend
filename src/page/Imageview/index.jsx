@@ -51,14 +51,14 @@ const Imageview = () => {
   ]
   return (
     <div className="imageview">
-      <Toolssider></Toolssider>
+      <Toolssider currentFits={currentImageFits}></Toolssider>
       <div className="rasterpanel">
         <div className="raster-view">
           <Rasterview></Rasterview>
-          <ColorBar></ColorBar>
+          <ColorBar currentFits={currentImageFits}></ColorBar>
         </div>
 
-        <Progressbar></Progressbar>
+        <Progressbar currentFits={currentImageFits}></Progressbar>
       </div>
       <Filelist data={imageFileList.fileListdata} columns={columns}></Filelist>
     </div>

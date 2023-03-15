@@ -1,0 +1,15 @@
+.specview {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  .rasterpanel {
+    flex-basis: 0px;
+    flex-grow: 5;
+    .raster-spec-view {
+      height: 90%;
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}

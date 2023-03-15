@@ -16,10 +16,9 @@ const items = [
     label: 'jet',
   },
 ]
-const Toolssider = () => {
-  const { currentImageFits } = useStore()
+const Toolssider = ({currentFits}) => {
   const onClick = ({ key }) => {
-    currentImageFits.updateColorMap(key)
+    currentFits.updateColorMap(key)
   }
   return (
     <div className="toolssider">
@@ -28,7 +27,7 @@ const Toolssider = () => {
         <Space>
           {'色标：'}
           <Dropdown menu={{ items, onClick }} placement="bottomLeft">
-            <Button>{currentImageFits.frame.colorMap}</Button>
+            <Button>{currentFits.frame.colorMap}</Button>
           </Dropdown>
         </Space>
       </Card>
