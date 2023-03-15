@@ -15,7 +15,6 @@ class CurrentImageFits {
   stokes = 'stokesi' //目前的偏振
   index = 1 // 目前的帧序号
   frame = new FrameStore() //帧的状态
-
   constructor() {
     makeAutoObservable(this)
   }
@@ -52,6 +51,10 @@ class CurrentImageFits {
     else {
       this.addFrame(index)
     }
+  }
+
+  updateColorMap = (colorindex) => {
+    this.frame.updateColorMap(colorindex)
   }
 
   addFrame = async (index) => {
@@ -94,13 +97,6 @@ class CurrentImageFits {
 
   get xAxis () {
 
-  }
-
-  /**
-   * 计算属性，用于获得当前的渲染参数
-   */
-  get renderConfig () {
-    return this.frame.renderConfig
   }
 
 

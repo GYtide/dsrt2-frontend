@@ -21,7 +21,6 @@ const Toolssider = () => {
   const onClick = ({ key }) => {
     // currentImageFits.renderConfig.updateColorMap(key)
     currentImageFits.frame.updateColorMap(key)
-    // console.log()
   }
   return (
     <div className="toolssider">
@@ -30,7 +29,7 @@ const Toolssider = () => {
         <Space>
           {'色标：'}
           <Dropdown menu={{ items, onClick }} placement="bottomLeft">
-            <Button>{currentImageFits.renderConfig.colorMap}</Button>
+            <Button>{currentImageFits.frame.colorMap}</Button>
           </Dropdown>
         </Space>
       </Card>

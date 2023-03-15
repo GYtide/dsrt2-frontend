@@ -14,8 +14,14 @@ class FrameStore {
   height = 1
   xAxis = [0, 1]
   yAxis = [0, 1]
+  COLOR_MAPS_SELECTED = [
+    "greys",
+    "hot",
+    "jet",
+  ];
+  colorMapIndex = 0
+  inverted = false // boolean; 是否反色
   cursorValue = { position: { x: 0, y: 0 }, value: null, isInsideImage: false };//鼠标状态
-  renderConfig = new RenderConfigStore()
   canvas = document.createElement('canvas')
   context = this.canvas.getContext('2d')
 
@@ -29,7 +35,7 @@ class FrameStore {
   }
 
   get canvasInstance () {
-    console.log('get canvasInstance')
+    console.log(this.COLOR_MAPS_SELECTED[this.colorMapIndex])
     this.canvas.width = this.width
     this.canvas.height = this.height
 
@@ -46,7 +52,7 @@ class FrameStore {
     // 添加色标
 
     let colors = colormap({
-      colormap: this.renderConfig.colorMap,
+      colormap: this.COLOR_MAPS_SELECTED[this.colorMapIndex],
       nshades: 255,
       format: 'rgb',
       alpha: 255
@@ -73,7 +79,7 @@ class FrameStore {
   }
 
   updateColorMap = (colormapkey) => {
-    this.renderConfig.colorMapIndex = colormapkey
+    this.colorMapIndex = colormapkey
   }
 
 
@@ -83,6 +89,10 @@ class FrameStore {
     this.width = width
     this.xAxis = xAxis
     this.yAxis = yAxis
+  }
+
+  get colorMap () {
+    return this.COLOR_MAPS_SELECTED[this.colorMapIndex]
   }
 
 
