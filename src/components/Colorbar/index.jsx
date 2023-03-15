@@ -56,9 +56,9 @@ const ColorBar = () => {
         data: [currentImageFits.frame.max, currentImageFits.frame.max],
         itemStyle: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: '#000000' }, //柱图高亮渐变色
-            { offset: 0.7, color: '#e60000' }, //柱图高亮渐变色
-            { offset: 1, color: '#ffffff' }, //柱图高亮渐变色
+            { offset: 0, color: '#000000' }, 
+            { offset: 0.7, color: '#e60000' }, 
+            { offset: 1, color: '#ffffff' }, 
           ]),
         },
       },

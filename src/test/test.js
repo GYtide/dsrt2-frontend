@@ -1,12 +1,19 @@
-// let colormap = require('colormap')
-
 import colormap from 'colormap'
+/**
+ * [
+ *        { offset: 0, color: '#000000' }, 
+ *       { offset: 0.7, color: '#e60000' }, 
+ *       { offset: 1, color: '#ffffff' }, 
+ *     ]
+ */
 
 let colors = colormap({
   colormap: 'hot',
-  nshades: 4,
+  nshades: 256,
   format: 'hex',
-  alpha: 1
+  alpha: 255
 })
 
-console.log(colors)
+// colors.map((value,index)=>{offset:(255-index)/})
+
+console.log(colors[255])

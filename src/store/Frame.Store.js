@@ -37,6 +37,24 @@ class FrameStore {
 
   }
 
+  /**
+   * colorMapbar 返回用于渲染 colorbar的彩条
+   * [
+   *        { offset: 0, color: '#000000' }, 
+   *       { offset: 0.7, color: '#e60000' }, 
+   *       { offset: 1, color: '#ffffff' }, 
+   *     ]
+   */
+  get colorMapbar () {
+    let colors = colormap({
+      colormap: colorMap,
+      nshades: 256,
+      format: 'rgb',
+      alpha: 255
+    })
+
+  }
+
 
   get canvasInstance () {
     this.canvas.width = this.width
@@ -59,7 +77,7 @@ class FrameStore {
 
     let colors = colormap({
       colormap: colorMap,
-      nshades: 255,
+      nshades: 256,
       format: 'rgb',
       alpha: 255
     })
