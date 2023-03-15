@@ -57,6 +57,7 @@ class CurrentImageFits {
     this.frame.updateColorMap(colorindex)
   }
 
+
   addFrame = async (index) => {
     const res = await http.get(
       `/data/imagefile/?type=appdata&fname=${this.filename}&index=${index}`

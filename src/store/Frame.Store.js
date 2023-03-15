@@ -8,7 +8,6 @@ import colormap from 'colormap'
 
 class FrameStore {
 
-
   frameData = [[255]] //原始的数据
   width = 1
   height = 1
@@ -28,14 +27,16 @@ class FrameStore {
   constructor() {
     makeAutoObservable(this)
     // 用于显示的canvas对象以及其上下文
+    this.colorMapIndex = this.colorMapIndex
     this.context.scale(1, -1)
     // 使用translate()函数调整y轴位置
     this.context.imageSmoothingEnabled = false
     this.context.translate(0, this.canvas.height)
+
   }
 
+
   get canvasInstance () {
-    console.log(this.COLOR_MAPS_SELECTED[this.colorMapIndex])
     this.canvas.width = this.width
     this.canvas.height = this.height
 
@@ -43,6 +44,11 @@ class FrameStore {
 
     var min = Math.min(...crxData)
     var max = Math.max(...crxData)
+    var colorindex = this.colorMapIndex
+
+    var colorMap = this.COLOR_MAPS_SELECTED[colorindex]
+    console.log(colorMap)
+
 
     const normalized = crxData.map(value => (value - min) / (max - min))
 
@@ -52,7 +58,7 @@ class FrameStore {
     // 添加色标
 
     let colors = colormap({
-      colormap: this.COLOR_MAPS_SELECTED[this.colorMapIndex],
+      colormap: colorMap,
       nshades: 255,
       format: 'rgb',
       alpha: 255
@@ -80,6 +86,7 @@ class FrameStore {
 
   updateColorMap = (colormapkey) => {
     this.colorMapIndex = colormapkey
+    this.canvasInstance
   }
 
 

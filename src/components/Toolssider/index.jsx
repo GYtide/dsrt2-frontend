@@ -19,8 +19,7 @@ const items = [
 const Toolssider = () => {
   const { currentImageFits } = useStore()
   const onClick = ({ key }) => {
-    // currentImageFits.renderConfig.updateColorMap(key)
-    currentImageFits.frame.updateColorMap(key)
+    currentImageFits.updateColorMap(key)
   }
   return (
     <div className="toolssider">
