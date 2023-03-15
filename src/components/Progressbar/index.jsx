@@ -6,7 +6,6 @@ const Progressbar = () => {
   const { currentImageFits } = useStore()
   const [disabled, setDisabled] = useState(false)
 
-  
   return (
     <Slider
       style={{ flex: 1 }}
@@ -15,7 +14,7 @@ const Progressbar = () => {
       defaultValue={1}
       disabled={disabled}
       onChange={(value) => {
-        currentImageFits.updataFrame(value)
+        currentImageFits.updateFrame(value)
       }}
     />
   )

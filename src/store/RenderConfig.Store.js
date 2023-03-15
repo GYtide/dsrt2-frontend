@@ -9,7 +9,7 @@ class RenderConfigStore {
 
   //  可选的colorMap
   COLOR_MAPS_SELECTED = [
-    "gray",
+    "greys",
     "hot",
     "jet",
   ];
@@ -38,6 +38,7 @@ class RenderConfigStore {
     })
     return ListData
   }
+
 
 
 }

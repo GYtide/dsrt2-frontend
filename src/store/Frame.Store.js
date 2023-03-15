@@ -29,6 +29,7 @@ class FrameStore {
   }
 
   get canvasInstance () {
+    console.log('get canvasInstance')
     this.canvas.width = this.width
     this.canvas.height = this.height
 
@@ -42,13 +43,25 @@ class FrameStore {
     // // 缩放至0到255之间
     const scaled = normalized.map(value => Math.round(value * 255))
 
+    // 添加色标
+
+    let colors = colormap({
+      colormap: this.renderConfig.colorMap,
+      nshades: 255,
+      format: 'rgb',
+      alpha: 255
+    })
+
     var rasterdata = []
     for (let i = 0; i < crxData.length; ++i) {
-      rasterdata[4 * i] = scaled[i]
-      rasterdata[4 * i + 1] = scaled[i]
-      rasterdata[4 * i + 2] = scaled[i]
-      rasterdata[4 * i + 3] = 255
+      rasterdata[i] = colors[scaled[i]]
     }
+
+    rasterdata = rasterdata.flat()
+    for (let i = 3; i < rasterdata.length; i += 4) {
+      rasterdata[i] = 255
+    }
+
 
     var imageData = this.context.getImageData(0, 0, this.canvas.width, this.canvas.height)
     imageData.data.set(rasterdata)
@@ -59,7 +72,12 @@ class FrameStore {
 
   }
 
-  updataFrame = (frame, width, height, xAxis, yAxis) => {
+  updateColorMap = (colormapkey) => {
+    this.renderConfig.colorMapIndex = colormapkey
+  }
+
+
+  updateFrame = (frame, width, height, xAxis, yAxis) => {
     this.frameData = frame
     this.height = height
     this.width = width

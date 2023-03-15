@@ -5,7 +5,6 @@
 import { makeAutoObservable } from 'mobx'
 import { http } from '@/utils'
 import { FrameStore } from './Frame.Store'
-import { RenderConfigStore } from './RenderConfig.Store'
 
 
 class CurrentImageFits {
@@ -16,7 +15,6 @@ class CurrentImageFits {
   stokes = 'stokesi' //目前的偏振
   index = 1 // 目前的帧序号
   frame = new FrameStore() //帧的状态
-  renderConfig = new RenderConfigStore()
 
   constructor() {
     makeAutoObservable(this)
@@ -32,7 +30,7 @@ class CurrentImageFits {
       this.header = res[0]
       this.data[res[1].index] = res[1].frame
       this.index = 1
-      this.frame.updataFrame(this.data[this.index][this.stokes],
+      this.frame.updateFrame(this.data[this.index][this.stokes],
         this.data[this.index][this.stokes].length,
         this.data[this.index][this.stokes][0].length,
         this.data[this.index]['sunx'],
@@ -41,11 +39,11 @@ class CurrentImageFits {
 
   }
 
-  updataFrame = async (index) => {
+  updateFrame = async (index) => {
     this.index = index
     // 如果存在数据就直接设为 index 所指向的数据
     if (this.data[this.index]) {
-      this.frame.updataFrame(this.data[this.index][this.stokes],
+      this.frame.updateFrame(this.data[this.index][this.stokes],
         this.data[this.index][this.stokes].length,
         this.data[this.index][this.stokes][0].length,
         this.data[this.index]['sunx'],
@@ -61,15 +59,12 @@ class CurrentImageFits {
       `/data/imagefile/?type=appdata&fname=${this.filename}&index=${index}`
     )
     this.data[res[0].index] = res[0].frame
-    this.frame.updataFrame(this.data[this.index][this.stokes],
+    this.frame.updateFrame(this.data[this.index][this.stokes],
       this.data[this.index][this.stokes].length,
       this.data[this.index][this.stokes][0].length,
       this.data[this.index]['sunx'],
       this.data[this.index]['suny'])
   }
-
-
-
   /**
    * 计算属性，用于获得扩展表中的第三维度即每个偏振有几张图片
    */
@@ -99,6 +94,13 @@ class CurrentImageFits {
 
   get xAxis () {
 
+  }
+
+  /**
+   * 计算属性，用于获得当前的渲染参数
+   */
+  get renderConfig () {
+    return this.frame.renderConfig
   }
 
 

@@ -3,10 +3,10 @@
 import colormap from 'colormap'
 
 let colors = colormap({
-  colormap: 'hot',
+  colormap: 'greys',
   nshades: 255,
   format: 'rgb',
-  alpha: 1
+  alpha: 255
 })
 
 console.log(colors)
